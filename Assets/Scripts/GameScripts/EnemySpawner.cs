@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int spawnIndex = Random.Range(0, 1);
+        int spawnIndex = Random.Range(0, 2);
 
         Instantiate(enemyPrefabs[spawnIndex], spawnPoint.position, spawnPoint.rotation);
     }
