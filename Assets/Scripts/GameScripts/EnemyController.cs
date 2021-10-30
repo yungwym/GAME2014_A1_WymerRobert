@@ -9,17 +9,16 @@ public class EnemyController : MonoBehaviour
     private int waypointIndex;
 
     //Variables 
-    [SerializeField] private float moveSpeed = 5.0f;
+    [SerializeField] private float moveSpeed = 4.0f;
     private float turnRate = 90;
+
+    [SerializeField] private float health = 100.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         waypoints = GameObject.FindGameObjectWithTag("Waypoint").GetComponent<Waypoints>();
     }
-
-   
-   
 
     // Update is called once per frame
     void Update()
@@ -50,4 +49,28 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Hit");
+
+        if (collision.CompareTag("Projectile"))
+        {
+            TakeDamage(collision.gameObject.GetComponent<ProjectileMovement>().GetDamage());
+        }
+    }
+
+    void TakeDamage(float damage)
+    {
+        Debug.Log("Damage Took: " + damage);
+
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
 }
