@@ -8,7 +8,7 @@ public class ProjectileMovement : MonoBehaviour
     private float damage;
 
 
-    private float fireSpeed = 12.0f;
+    private float fireSpeed = 15.0f;
 
     // Update is called once per frame
     void Update()
