@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class DefenceController : MonoBehaviour
 {
-    public Transform enemyTarget;
-
-    private GameObject[] enemies; 
+    
     [SerializeField] private float fireRange = 15.0f;
-
     [SerializeField] float fireWait = 5f;
-
     [SerializeField] Transform defenceTop;
-
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform projectilePoint;
 
     private ProjectileMovement projectileMovement;
 
     private bool canFireProjectile = true;
+
+    private GameObject[] enemies;
+
+    public Transform enemyTarget;
 
 
     [SerializeField] private float damage = 100;

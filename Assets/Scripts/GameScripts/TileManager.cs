@@ -6,7 +6,9 @@ public class TileManager : MonoBehaviour
 {
     public static TileManager tileManagerInstance;
 
-    [SerializeField] private GameObject selectedDefence;
+    private GameObject selectedDefence = null;
+
+    public bool tileHasBeenSelected = false;
 
     private Tile[] tiles;
 
@@ -30,9 +32,29 @@ public class TileManager : MonoBehaviour
         return selectedDefence;
     }
 
+    public void SetSelectedDefenceToNull()
+    {
+        selectedDefence = null;
+        tileHasBeenSelected = false;
+    }
+
     public void SetSelectedDefence(GameObject selectedDef)
     {
         selectedDefence = selectedDef;
+        tileHasBeenSelected = true;
+    }
+
+
+    public void PlaceDefence(Transform defenceTransform, Quaternion defenceQuaternion)
+    {
+        if (selectedDefence != null)
+        {
+            Instantiate(selectedDefence, defenceTransform.position, defenceQuaternion);
+        }
+        else
+        {
+            Debug.Log("No Selected Defence");
+        }
     }
 
 

@@ -6,11 +6,17 @@ public class EnemyController : MonoBehaviour
 {
     //Path Variables 
     [SerializeField] Waypoints waypoints;
+
+    private Shop shop;
+    private Score scoreManager;
+
     private int waypointIndex;
 
     //Variables 
     [SerializeField] private float moveSpeed = 4.0f;
-    private float turnRate = 90;
+
+    [SerializeField] private float moneyReward = 100;
+    [SerializeField] private float scoreReward = 250;
 
     [SerializeField] private float health = 100.0f;
 
@@ -18,6 +24,9 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         waypoints = GameObject.FindGameObjectWithTag("Waypoint").GetComponent<Waypoints>();
+
+        shop = GameObject.FindObjectOfType<Shop>();
+        scoreManager = GameObject.FindObjectOfType<Score>();
     }
 
     // Update is called once per frame
@@ -52,8 +61,6 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hit");
-
         if (collision.CompareTag("Projectile"))
         {
             TakeDamage(collision.gameObject.GetComponent<ProjectileMovement>().GetDamage());
@@ -69,8 +76,9 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            shop.AddMoney(moneyReward);
+            scoreManager.AddToScore(scoreReward);
         }
-
     }
 
 }

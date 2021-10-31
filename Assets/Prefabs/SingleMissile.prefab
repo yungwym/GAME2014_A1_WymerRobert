@@ -75,12 +75,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9839bc400cbcd744ca52c69502f31cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTarget: {fileID: 0}
   fireRange: 8
   fireWait: 1
   defenceTop: {fileID: 7289313104549434890}
   projectilePrefab: {fileID: 1296699090155846659, guid: 1cbb7bcd5ca728349bde79eeedf38629, type: 3}
   projectilePoint: {fileID: 4782264760068574147}
+  enemyTarget: {fileID: 0}
   damage: 25
 --- !u!1 &7820001324060722905
 GameObject:
@@ -237,7 +237,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1851539277
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9ebf5ad687a136149b39c5fe91b29408, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

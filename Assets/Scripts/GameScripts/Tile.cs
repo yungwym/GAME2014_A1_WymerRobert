@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-
     private GameObject defence;
-
     public bool isFull;
-
     public SpriteRenderer tileSpriteRenderer;
     private Collider2D collider;
-
     private TileManager tileManager;
 
     // Start is called before the first frame update
@@ -41,12 +37,14 @@ public class Tile : MonoBehaviour
     }
 
     void PlaceDefence()
-    { 
-        defence = tileManager.GetSelectedDefence();
-        Instantiate(defence, transform.position, transform.rotation);
-        isFull = true;
-        tileSpriteRenderer.enabled = false;
-
-        tileManager.HideActiveTiles();
+    {
+        if (tileManager.tileHasBeenSelected == true)
+        {
+            tileManager.PlaceDefence(transform, transform.rotation);
+            isFull = true;
+            tileSpriteRenderer.enabled = false;
+            tileManager.HideActiveTiles();
+            tileManager.SetSelectedDefenceToNull();
+        }
     }
 }
