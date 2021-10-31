@@ -7,16 +7,21 @@ public class Tile : MonoBehaviour
 
     private GameObject defence;
 
-    private bool isFull;
+    public bool isFull;
 
-    private SpriteRenderer tileSpriteRenderer;
+    public SpriteRenderer tileSpriteRenderer;
     private Collider2D collider;
+
+    private TileManager tileManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        tileManager = TileManager.tileManagerInstance;
+
         tileSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         collider = gameObject.GetComponent<Collider2D>();
+        tileSpriteRenderer.enabled = false;
     }
 
     // Update is called once per frame
@@ -37,10 +42,11 @@ public class Tile : MonoBehaviour
 
     void PlaceDefence()
     { 
-        defence = TileManager.tileManagerInstance.GetSelectedDefence();
-
+        defence = tileManager.GetSelectedDefence();
         Instantiate(defence, transform.position, transform.rotation);
         isFull = true;
         tileSpriteRenderer.enabled = false;
+
+        tileManager.HideActiveTiles();
     }
 }

@@ -8,6 +8,8 @@ public class TileManager : MonoBehaviour
 
     [SerializeField] private GameObject selectedDefence;
 
+    private Tile[] tiles;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,8 +20,38 @@ public class TileManager : MonoBehaviour
         tileManagerInstance = this;
     }
 
+    private void Start()
+    {
+        tiles = FindObjectsOfType<Tile>();
+    }
+
     public GameObject GetSelectedDefence()
     {
         return selectedDefence;
+    }
+
+    public void SetSelectedDefence(GameObject selectedDef)
+    {
+        selectedDefence = selectedDef;
+    }
+
+
+    public void ShowActiveTiles()
+    {
+        foreach (var tile in tiles)
+        {
+            if (tile.isFull == false)
+            {
+                tile.tileSpriteRenderer.enabled = true;
+            }
+        }
+    }
+
+    public void HideActiveTiles()
+    {
+        foreach (var tile in tiles)
+        {
+            tile.tileSpriteRenderer.enabled = false;
+        }
     }
 }

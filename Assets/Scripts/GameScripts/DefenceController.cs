@@ -7,7 +7,7 @@ public class DefenceController : MonoBehaviour
     public Transform enemyTarget;
 
     private GameObject[] enemies; 
-    private float fireRange = 15.0f;
+    [SerializeField] private float fireRange = 15.0f;
 
     [SerializeField] float fireWait = 5f;
 
@@ -18,7 +18,7 @@ public class DefenceController : MonoBehaviour
 
     private ProjectileMovement projectileMovement;
 
-    private bool hasEnemyTarget = false;
+    private bool canFireProjectile = true;
 
 
     [SerializeField] private float damage = 100;
@@ -60,7 +60,11 @@ public class DefenceController : MonoBehaviour
         if (closestEnemy != null && shortestDistance <= fireRange)
         {
             enemyTarget = closestEnemy.transform;
-            DefenceFire();
+
+            if (canFireProjectile)
+            {
+                StartCoroutine(DefenceFire());
+            }
         }
         else
         {
@@ -70,10 +74,13 @@ public class DefenceController : MonoBehaviour
         StartCoroutine(FindEnemyTarget());
     }
 
-    void DefenceFire()
+    IEnumerator DefenceFire()
     {
+        canFireProjectile = false;
         GameObject proj = Instantiate(projectilePrefab, projectilePoint.position, defenceTop.rotation);
         proj.GetComponent<ProjectileMovement>().SetDamage(damage);
+        yield return new WaitForSeconds(fireWait);
+        canFireProjectile = true;
     }
 
     void RotateDefenceTop()

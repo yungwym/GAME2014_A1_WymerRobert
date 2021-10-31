@@ -129,10 +129,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTarget: {fileID: 0}
-  fireWait: 0.5
+  fireRange: 8
+  fireWait: 1
   defenceTop: {fileID: 6600490142215342313}
   projectilePrefab: {fileID: 101554505326197988, guid: cf1b8f23d04f12640bc4c27b62fa6ca0, type: 3}
   projectilePoint: {fileID: 2736385572496999929}
+  damage: 200
 --- !u!1 &5372246575775732312
 GameObject:
   m_ObjectHideFlags: 0

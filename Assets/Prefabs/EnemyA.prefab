@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: {fileID: 0}
-  moveSpeed: 5
+  moveSpeed: 2.5
   health: 100
 --- !u!70 &350391951844534329
 CapsuleCollider2D:

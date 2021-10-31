@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2494074081139079460}
   - component: {fileID: 5094521959537468363}
   - component: {fileID: 8232241222981962608}
+  - component: {fileID: -8411163220994330476}
   m_Layer: 0
   m_Name: LittleMissileProjectile
   m_TagString: Projectile
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1851539277
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b08b9763fa6887446aff86dc66c43e90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,3 +101,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.004671097, y: -0.010899901}
   m_Size: {x: 0.19935608, y: 0.66649365}
   m_Direction: 0
+--- !u!114 &-8411163220994330476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296699090155846659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18568de8afc0fb34694a0c49546e92fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
